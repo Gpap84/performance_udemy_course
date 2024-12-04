@@ -1,4 +1,4 @@
-name: Load Testing QuickPizza
+name: Load Testing QuickPizza with Report
 on:
    - workflow_dispatch
    
