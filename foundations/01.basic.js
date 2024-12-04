@@ -1,6 +1,7 @@
 import http from "k6/http";
 import { check, sleep } from "k6";
 import { Trend, Counter } from "k6/metrics";
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 
 const BASE_URL = __ENV.BASE_URL || 'http://localhost:3333';
 
@@ -55,7 +56,7 @@ export function teardown() {
 }
 
 export function handleSummary(data) {
-   return {
-    'summary.json': JSON.stringify(data, null, 2),
-   }
+  return {
+    "summary.html": htmlReport(data),
+  };
 }
